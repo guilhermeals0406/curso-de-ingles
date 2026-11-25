@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Inglês Zero" />
-  <title>Inglês Zero Custo v4.0 — Videoaulas, Tutor IA & Voz</title>
+  <title>Inglês Zero Custo v4.1 — Videoaulas, Tutor IA & Voz</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/svg+xml" href="icon.svg" />
   <link rel="apple-touch-icon" href="icon.svg" />
@@ -63,14 +63,14 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">Inglês Zero Custo</h1>
-            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v4.0</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v4.1</span>
           </div>
           <p class="text-indigo-100 text-xs">Videoaulas • Tutor IA & Voz • Flashcards • Top Apps</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Ofensiva Diária (Streak estilo Duolingo) -->
+        <!-- Ofensiva Diária -->
         <div class="bg-amber-400/20 backdrop-blur-sm border border-amber-300/30 rounded-xl px-3 py-1.5 flex items-center gap-2" title="Dias seguidos estudando">
           <i class="fa-solid fa-fire text-amber-300 text-base"></i>
           <div>
@@ -139,12 +139,12 @@
 
     <!-- ==================== ABA 1: VIDEOAULAS GRATUITAS ==================== -->
     <section id="view-videoaulas" class="space-y-5">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-100">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Trilha Visual Passo a Passo</span>
             <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Videoaulas de Inglês do Zero</h2>
-            <p class="text-xs sm:text-sm text-slate-600">Assista às aulas selecionadas diretamente no aplicativo e marque como concluída.</p>
+            <p class="text-xs sm:text-sm text-slate-600">Escolha um módulo abaixo ou cole qualquer link do YouTube para assistir sem sair do app.</p>
           </div>
           <div class="flex flex-wrap gap-2">
             <a href="https://kultivi.com/cursos/idiomas/ingles" target="_blank" rel="noopener" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs px-3.5 py-2.5 rounded-xl border border-indigo-200 transition flex items-center gap-1.5">
@@ -156,25 +156,33 @@
           </div>
         </div>
 
+        <!-- Campo para Colar Qualquer Link do YouTube -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row gap-2">
+          <input type="text" id="custom-yt-url" placeholder="Cole aqui o link de qualquer aula do YouTube (ex: https://youtu.be/...)" class="flex-1 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-indigo-500" />
+          <button onclick="loadCustomYouTubeVideo()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition flex items-center justify-center gap-1.5 flex-shrink-0">
+            <i class="fa-brands fa-youtube"></i> Carregar Vídeo
+          </button>
+        </div>
+
         <!-- Player Principal + Lista de Aulas -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 pt-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <!-- Player de Vídeo -->
           <div class="lg:col-span-2 space-y-3">
             <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner">
-              <iframe id="video-player-frame" class="w-full h-full" src="https://www.youtube.com/embed/S_2vD4c8N7I" title="Videoaula de Inglês" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe id="video-player-frame" class="w-full h-full" src="https://www.youtube.com/embed?listType=search&list=curso+de+ingles+do+zero+aula+1+kultivi" title="Videoaula de Inglês" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
               <div>
                 <span id="current-video-badge" class="text-[11px] font-bold uppercase bg-indigo-100 text-indigo-700 px-2.5 py-0.5 rounded-full">Aula 1 • Iniciante</span>
-                <h3 id="current-video-title" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Como Começar a Estudar Inglês do Zero</h3>
-                <p id="current-video-desc" class="text-xs text-slate-600 mt-0.5">Entenda os primeiros passos, pronúncia básica e como destravar o ouvido.</p>
+                <h3 id="current-video-title" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Curso de Inglês do Zero — Aula 1 (Primeiros Passos)</h3>
+                <p id="current-video-desc" class="text-xs text-slate-600 mt-0.5">Playlist dinâmica de aulas gratuitas para começar do absoluto zero.</p>
               </div>
               <div class="flex items-center gap-2 flex-shrink-0">
                 <button id="btn-mark-video" onclick="toggleCurrentVideoDone()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5">
                   <i class="fa-solid fa-check"></i> <span>Concluir Aula</span>
                 </button>
-                <a id="current-video-yt-link" href="https://www.youtube.com/watch?v=S_2vD4c8N7I" target="_blank" rel="noopener" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-xs px-3 py-2.5 rounded-xl transition" title="Abrir no YouTube">
-                  <i class="fa-brands fa-youtube text-rose-600"></i>
+                <a id="current-video-yt-link" href="https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi" target="_blank" rel="noopener" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-xs px-3 py-2.5 rounded-xl transition flex items-center gap-1.5" title="Ver mais aulas no YouTube">
+                  <i class="fa-brands fa-youtube text-rose-600"></i> <span>YouTube</span>
                 </a>
               </div>
             </div>
@@ -213,7 +221,7 @@
           </div>
         </div>
 
-        <!-- MODO A: SIMULADOR GUIADO (SEM CHAVE) -->
+        <!-- MODO A: SIMULADOR GUIADO -->
         <div id="tutor-guided-panel" class="pt-4 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
             <div class="flex items-center gap-2 text-xs text-emerald-900">
@@ -419,17 +427,15 @@
 
     <!-- ==================== ABA 7: TOP APPS & GITHUB ==================== -->
     <section id="view-recursos" class="hidden space-y-6">
-      <!-- Ranking dos Apps Mais Acessados -->
       <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Pesquisa Global de Usuários</span>
           <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Aplicativos e Plataformas de Inglês Mais Acessados</h2>
-          <p class="text-xs sm:text-sm text-slate-600">Combine este app com as ferramentas gratuitas líderes em downloads para acelerar cada habilidade:</p>
+          <p class="text-xs sm:text-sm text-slate-600">Combine este app com as ferramentas gratuitas líderes em downloads:</p>
         </div>
         <div id="top-apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
       </div>
 
-      <!-- Atualização GitHub / Android -->
       <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-5 sm:p-6 shadow-md">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <div class="space-y-2 max-w-2xl">
@@ -438,12 +444,12 @@
             </span>
             <h2 class="text-lg sm:text-xl font-extrabold">Instalar no Android ou Atualizar no GitHub</h2>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              No Google Chrome do Android, abra seu link do GitHub Pages e toque em <strong>"Instalar aplicativo"</strong> no menu (⋮). Para atualizar seu repositório, baixe o arquivo abaixo:
+              No Google Chrome do Android, abra seu link do GitHub Pages e toque em <strong>"Instalar aplicativo"</strong> no menu (⋮).
             </p>
           </div>
           <div class="flex flex-wrap gap-2">
             <button onclick="downloadCurrentHTML()" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2 shadow">
-              <i class="fa-solid fa-download"></i> Baixar index.html v4.0
+              <i class="fa-solid fa-download"></i> Baixar index.html v4.1
             </button>
           </div>
         </div>
@@ -459,111 +465,69 @@
   </div>
 
   <script>
-    // ==================== VIDEOAULAS CURADAS ====================
+    // ==================== VIDEOAULAS (BUSCA EMBUTIDA NATIVA DO YOUTUBE) ====================
     const VIDEO_LESSONS = [
       {
         id: "v1",
         badge: "Aula 1 • Iniciante",
-        title: "Como Começar a Estudar Inglês do Zero",
-        desc: "Entenda os primeiros passos, pronúncia básica e como destravar o ouvido.",
-        youtubeId: "S_2vD4c8N7I",
-        duration: "14 min"
+        title: "Curso de Inglês do Zero — Aula 1 (Primeiros Passos)",
+        desc: "Aulas gratuitas para começar do absoluto zero com pronúncia e estrutura.",
+        searchQuery: "curso+de+ingles+do+zero+aula+1+kultivi",
+        duration: "Módulo 1"
       },
       {
         id: "v2",
         badge: "Aula 2 • Pronúncia",
-        title: "Alfabeto em Inglês e Sons Principais",
-        desc: "Aprenda a pronunciar cada letra e evitar os erros mais comuns de brasileiros.",
-        youtubeId: "E8Q54A4v2tM",
-        duration: "12 min"
+        title: "Alfabeto e Sons do Inglês (English in Brazil)",
+        desc: "Aprenda a pronunciar cada som e evitar os erros mais comuns de brasileiros.",
+        searchQuery: "alfabeto+e+pronuncia+ingles+english+in+brazil",
+        duration: "Módulo 2"
       },
       {
         id: "v3",
         badge: "Aula 3 • Estrutura",
         title: "Verbo To Be Sem Complicação na Prática",
         desc: "Como montar frases afirmativas, negativas e perguntas do dia a dia.",
-        youtubeId: "68N6d6H337s",
-        duration: "18 min"
+        searchQuery: "verbo+to+be+aula+completa+ingles+iniciante",
+        duration: "Módulo 3"
       },
       {
         id: "v4",
         badge: "Aula 4 • Vocabulário",
         title: "100 Frases Mais Usadas em Inglês com Áudio",
         desc: "Treine escuta e repetição com expressões reais do cotidiano.",
-        youtubeId: "3w65f861g20",
-        duration: "22 min"
+        searchQuery: "100+frases+mais+usadas+em+ingles+com+pronuncia",
+        duration: "Módulo 4"
       },
       {
         id: "v5",
         badge: "Aula 5 • Listening",
         title: "Treino de Escuta para Iniciantes (Diálogos Lentos)",
         desc: "Pratique compreensão auditiva com legendas em inglês e português.",
-        youtubeId: "v5tA2tD7n5U",
-        duration: "15 min"
+        searchQuery: "listening+ingles+iniciante+dialogos+com+legenda",
+        duration: "Módulo 5"
       },
       {
         id: "v6",
         badge: "Aula 6 • Conversação",
         title: "Como Se Apresentar e Conversar em Inglês",
         desc: "Simulação prática para viagens, entrevistas e novos amigos.",
-        youtubeId: "d0yGdNEWdn0",
-        duration: "16 min"
+        searchQuery: "como+se+apresentar+em+ingles+iniciante",
+        duration: "Módulo 6"
       }
     ];
 
     let activeVideoIdx = 0;
     let completedVideos = JSON.parse(localStorage.getItem('izc_v4_videos') || '{}');
 
-    // ==================== RANKING TOP APPS MAIS ACESSADOS ====================
+    // ==================== RANKING TOP APPS ====================
     const TOP_APPS_DATA = [
-      {
-        rank: "#1 Mais Baixado",
-        name: "Duolingo",
-        focus: "Hábito Diário & Gamificação",
-        desc: "App de idiomas mais acessado do mundo. Ideal para 10 minutos diários de vocabulário e leitura.",
-        url: "https://pt.duolingo.com/",
-        badgeColor: "bg-emerald-100 text-emerald-800"
-      },
-      {
-        rank: "#2 Vídeos Reais",
-        name: "Cake — Aprenda Inglês",
-        focus: "Listening com Séries e Filmes",
-        desc: "Clipes curtos do YouTube e filmes com legendas duplas e repetição de falas nativas.",
-        url: "https://mycake.me/",
-        badgeColor: "bg-rose-100 text-rose-800"
-      },
-      {
-        rank: "#3 Pronúncia IA",
-        name: "ELSA Speak",
-        focus: "Correção Sílaba por Sílaba",
-        desc: "Líder em inteligência artificial focada em reduzir sotaque e corrigir pronúncia.",
-        url: "https://elsaspeak.com/pt/",
-        badgeColor: "bg-indigo-100 text-indigo-800"
-      },
-      {
-        rank: "#4 Curso Completo BR",
-        name: "Kultivi (225 Videoaulas)",
-        focus: "Curso Gratuito com Certificado",
-        desc: "Plataforma brasileira 100% gratuita com aulas completas do básico à conversação.",
-        url: "https://kultivi.com/cursos/idiomas/ingles",
-        badgeColor: "bg-amber-100 text-amber-800"
-      },
-      {
-        rank: "#5 Curso Oficial MEC",
-        name: "MEC Idiomas (Aprenda Mais)",
-        focus: "Formação Estruturada Gratuita",
-        desc: "Cursos gratuitos do Ministério da Educação do Brasil com certificado oficial.",
-        url: "https://aprendamais.mec.gov.br/",
-        badgeColor: "bg-sky-100 text-sky-800"
-      },
-      {
-        rank: "#6 Comunidade Nativa",
-        name: "Busuu & HelloTalk",
-        focus: "Prática com Falantes Nativos",
-        desc: "Correção de exercícios e troca de mensagens com pessoas nativas ao redor do mundo.",
-        url: "https://www.busuu.com/pt",
-        badgeColor: "bg-purple-100 text-purple-800"
-      }
+      { rank: "#1 Mais Baixado", name: "Duolingo", focus: "Hábito Diário & Gamificação", desc: "App de idiomas mais acessado do mundo. Ideal para 10 minutos diários de vocabulário.", url: "https://pt.duolingo.com/", badgeColor: "bg-emerald-100 text-emerald-800" },
+      { rank: "#2 Vídeos Reais", name: "Cake — Aprenda Inglês", focus: "Listening com Séries e Filmes", desc: "Clipes curtos do YouTube e filmes com legendas duplas e repetição de falas nativas.", url: "https://mycake.me/", badgeColor: "bg-rose-100 text-rose-800" },
+      { rank: "#3 Pronúncia IA", name: "ELSA Speak", focus: "Correção Sílaba por Sílaba", desc: "Inteligência artificial focada em reduzir sotaque e corrigir pronúncia.", url: "https://elsaspeak.com/pt/", badgeColor: "bg-indigo-100 text-indigo-800" },
+      { rank: "#4 Curso Completo BR", name: "Kultivi (225 Videoaulas)", focus: "Curso Gratuito com Certificado", desc: "Plataforma brasileira 100% gratuita com aulas completas do básico à conversação.", url: "https://kultivi.com/cursos/idiomas/ingles", badgeColor: "bg-amber-100 text-amber-800" },
+      { rank: "#5 Curso Oficial MEC", name: "MEC Idiomas (Aprenda Mais)", focus: "Formação Estruturada Gratuita", desc: "Cursos gratuitos do Ministério da Educação do Brasil com certificado oficial.", url: "https://aprendamais.mec.gov.br/", badgeColor: "bg-sky-100 text-sky-800" },
+      { rank: "#6 Comunidade Nativa", name: "Busuu & HelloTalk", focus: "Prática com Falantes Nativos", desc: "Correção de exercícios e troca de mensagens com falantes nativos.", url: "https://www.busuu.com/pt", badgeColor: "bg-purple-100 text-purple-800" }
     ];
 
     // ==================== DADOS DO TUTOR GUIADO ====================
@@ -571,98 +535,32 @@
       {
         title: "Apresentação Pessoal (A1)",
         steps: [
-          {
-            aiEn: "Hello! Welcome! What is your name?",
-            aiPt: "Olá! Bem-vindo! Qual é o seu nome?",
-            targetEn: "Hello! My name is Guilherme and I am from Brazil.",
-            targetPt: "Olá! Meu nome é Guilherme e eu sou do Brasil. (Pode falar seu próprio nome!)",
-            phonetic: "Rê-lôu! Mai nêim iz ... énd ai ém frôm Brâ-zil"
-          },
-          {
-            aiEn: "Nice to meet you! Why are you learning English?",
-            aiPt: "Prazer em conhecê-lo! Por que você está aprendendo inglês?",
-            targetEn: "I am learning English for work and travel.",
-            targetPt: "Eu estou aprendendo inglês para trabalho e viagens.",
-            phonetic: "Ai ém lâr-nin în-glich fór uârk énd tré-vôl"
-          },
-          {
-            aiEn: "That is great! How do you practice every day?",
-            aiPt: "Isso é ótimo! Como você pratica todos os dias?",
-            targetEn: "I study for thirty minutes every day using free apps.",
-            targetPt: "Eu estudo por trinta minutos todos os dias usando aplicativos gratuitos.",
-            phonetic: "Ai stâ-di fór thâr-ti mi-nits é-vri dêi iú-zin fri éps"
-          },
-          {
-            aiEn: "Keep going! You are doing a great job.",
-            aiPt: "Continue assim! Você está fazendo um ótimo trabalho.",
-            targetEn: "Thank you very much! See you later.",
-            targetPt: "Muito obrigado! Até mais tarde.",
-            phonetic: "Thénk iú vé-ri mâtch! Si iú lêi-târ"
-          }
+          { aiEn: "Hello! Welcome! What is your name?", aiPt: "Olá! Bem-vindo! Qual é o seu nome?", targetEn: "Hello! My name is Guilherme and I am from Brazil.", targetPt: "Olá! Meu nome é Guilherme e eu sou do Brasil.", phonetic: "Rê-lôu! Mai nêim iz ... énd ai ém frôm Brâ-zil" },
+          { aiEn: "Nice to meet you! Why are you learning English?", aiPt: "Prazer em conhecê-lo! Por que você está aprendendo inglês?", targetEn: "I am learning English for work and travel.", targetPt: "Eu estou aprendendo inglês para trabalho e viagens.", phonetic: "Ai ém lâr-nin în-glich fór uârk énd tré-vôl" },
+          { aiEn: "That is great! How do you practice every day?", aiPt: "Isso é ótimo! Como você pratica todos os dias?", targetEn: "I study for thirty minutes every day using free apps.", targetPt: "Eu estudo por trinta minutos todos os dias usando aplicativos gratuitos.", phonetic: "Ai stâ-di fór thâr-ti mi-nits é-vri dêi iú-zin fri éps" },
+          { aiEn: "Keep going! You are doing a great job.", aiPt: "Continue assim! Você está fazendo um ótimo trabalho.", targetEn: "Thank you very much! See you later.", targetPt: "Muito obrigado! Até mais tarde.", phonetic: "Thénk iú vé-ri mâtch! Si iú lêi-târ" }
         ]
       },
       {
         title: "Pedindo Café e Comida (A1)",
         steps: [
-          {
-            aiEn: "Good morning! What can I get for you today?",
-            aiPt: "Bom dia! O que posso servir para você hoje?",
-            targetEn: "Good morning! I would like a black coffee, please.",
-            targetPt: "Bom dia! Eu gostaria de um café preto, por favor.",
-            phonetic: "Gud mór-nin! Ai ud láik â blék kó-fi, pliz"
-          },
-          {
-            aiEn: "Sure! Would you like anything to eat?",
-            aiPt: "Claro! Você gostaria de algo para comer?",
-            targetEn: "Yes, a cheese sandwich, please.",
-            targetPt: "Sim, um sanduíche de queijo, por favor.",
-            phonetic: "Iés, â tchiz sénd-uitch, pliz"
-          },
-          {
-            aiEn: "For here or to go?",
-            aiPt: "Para comer aqui ou para viagem?",
-            targetEn: "For here, please. How much is it?",
-            targetPt: "Para aqui, por favor. Quanto custa?",
-            phonetic: "Fór rír, pliz. Ráu mâtch iz it?"
-          }
+          { aiEn: "Good morning! What can I get for you today?", aiPt: "Bom dia! O que posso servir para você hoje?", targetEn: "Good morning! I would like a black coffee, please.", targetPt: "Bom dia! Eu gostaria de um café preto, por favor.", phonetic: "Gud mór-nin! Ai ud láik â blék kó-fi, pliz" },
+          { aiEn: "Sure! Would you like anything to eat?", aiPt: "Claro! Você gostaria de algo para comer?", targetEn: "Yes, a cheese sandwich, please.", targetPt: "Sim, um sanduíche de queijo, por favor.", phonetic: "Iés, â tchiz sénd-uitch, pliz" },
+          { aiEn: "For here or to go?", aiPt: "Para comer aqui ou para viagem?", targetEn: "For here, please. How much is it?", targetPt: "Para aqui, por favor. Quanto custa?", phonetic: "Fór rír, pliz. Ráu mâtch iz it?" }
         ]
       },
       {
         title: "No Aeroporto e Hotel (A2)",
         steps: [
-          {
-            aiEn: "May I see your passport and boarding pass, please?",
-            aiPt: "Posso ver seu passaporte e cartão de embarque, por favor?",
-            targetEn: "Yes, of course. Here is my passport.",
-            targetPt: "Sim, claro. Aqui está meu passaporte.",
-            phonetic: "Iés, óv kórs. Rír iz mai pés-pórt"
-          },
-          {
-            aiEn: "What is the purpose of your trip?",
-            aiPt: "Qual é o objetivo da sua viagem?",
-            targetEn: "I am here on vacation for ten days.",
-            targetPt: "Estou aqui de férias por dez dias.",
-            phonetic: "Ai ém rír ón vêi-kêi-shân fór tén dêiz"
-          }
+          { aiEn: "May I see your passport and boarding pass, please?", aiPt: "Posso ver seu passaporte e cartão de embarque, por favor?", targetEn: "Yes, of course. Here is my passport.", targetPt: "Sim, claro. Aqui está meu passaporte.", phonetic: "Iés, óv kórs. Rír iz mai pés-pórt" },
+          { aiEn: "What is the purpose of your trip?", aiPt: "Qual é o objetivo da sua viagem?", targetEn: "I am here on vacation for ten days.", targetPt: "Estou aqui de férias por dez dias.", phonetic: "Ai ém rír ón vêi-kêi-shân fór tén dêiz" }
         ]
       },
       {
         title: "Entrevista de Trabalho Básica (A2/B1)",
         steps: [
-          {
-            aiEn: "Tell me a little about yourself.",
-            aiPt: "Fale-me um pouco sobre você.",
-            targetEn: "I am a dedicated professional and a fast learner.",
-            targetPt: "Sou um profissional dedicado e aprendo rápido.",
-            phonetic: "Ai ém â dé-di-kêi-têd prô-fé-shâ-nâl énd â fést lâr-nâr"
-          },
-          {
-            aiEn: "Why do you want to work here?",
-            aiPt: "Por que você quer trabalhar aqui?",
-            targetEn: "Because I admire this company and want to grow.",
-            targetPt: "Porque admiro esta empresa e quero crescer.",
-            phonetic: "Bi-kóz ai éd-mái-âr dhis kâm-pâ-ni énd uónt tu grôu"
-          }
+          { aiEn: "Tell me a little about yourself.", aiPt: "Fale-me um pouco sobre você.", targetEn: "I am a dedicated professional and a fast learner.", targetPt: "Sou um profissional dedicado e aprendo rápido.", phonetic: "Ai ém â dé-di-kêi-têd prô-fé-shâ-nâl énd â fést lâr-nâr" },
+          { aiEn: "Why do you want to work here?", aiPt: "Por que você quer trabalhar aqui?", targetEn: "Because I admire this company and want to grow.", targetPt: "Porque admiro esta empresa e quero crescer.", phonetic: "Bi-kóz ai éd-mái-âr dhis kâm-pâ-ni énd uónt tu grôu" }
         ]
       }
     ];
@@ -778,12 +676,10 @@
     let cefrAnswers = {};
     let cefrSubmitted = false;
 
-    // ==================== OFENSIVA DIÁRIA (STREAK) ====================
     function updateStreak() {
       const today = new Date().toISOString().slice(0, 10);
       const lastVisit = localStorage.getItem('izc_last_visit');
       let streak = parseInt(localStorage.getItem('izc_streak') || '1', 10);
-
       if (lastVisit && lastVisit !== today) {
         const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
         streak = (lastVisit === yesterday) ? streak + 1 : 1;
@@ -800,7 +696,6 @@
       setTimeout(() => t.classList.add('opacity-0'), 3200);
     }
 
-    // ==================== NAVEGAÇÃO ====================
     function switchTab(tabName) {
       const tabs = ['videoaulas', 'tutor', 'cronograma', 'aulas', 'flashcards', 'nivel', 'recursos'];
       tabs.forEach(t => {
@@ -813,18 +708,17 @@
       const activeBtn = document.getElementById(`tab-${tabName}`);
       activeBtn.classList.remove('tab-inactive');
       activeBtn.classList.add('tab-active');
-
       if (tabName === 'flashcards') refreshFlashcardsUI();
     }
 
-    // ==================== VIDEOAULAS ====================
+    // ==================== VIDEOAULAS (BUSCA EMBUTIDA + LINK CUSTOMIZADO) ====================
     function renderVideoLessons() {
       const v = VIDEO_LESSONS[activeVideoIdx];
-      document.getElementById('video-player-frame').src = `https://www.youtube.com/embed/${v.youtubeId}`;
+      document.getElementById('video-player-frame').src = `https://www.youtube.com/embed?listType=search&list=${v.searchQuery}`;
       document.getElementById('current-video-badge').textContent = `${v.badge} • ${v.duration}`;
       document.getElementById('current-video-title').textContent = v.title;
       document.getElementById('current-video-desc').textContent = v.desc;
-      document.getElementById('current-video-yt-link').href = `https://www.youtube.com/watch?v=${v.youtubeId}`;
+      document.getElementById('current-video-yt-link').href = `https://www.youtube.com/results?search_query=${v.searchQuery}`;
 
       const isDone = !!completedVideos[v.id];
       const markBtn = document.getElementById('btn-mark-video');
@@ -857,6 +751,22 @@
       }).join('');
     }
 
+    function loadCustomYouTubeVideo() {
+      const url = document.getElementById('custom-yt-url').value.trim();
+      if (!url) return showToast("Cole um link do YouTube primeiro.");
+      const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+      if (!match || !match[1]) {
+        return showToast("Link inválido. Copie o link direto do vídeo no YouTube.");
+      }
+      const videoId = match[1];
+      document.getElementById('video-player-frame').src = `https://www.youtube.com/embed/${videoId}`;
+      document.getElementById('current-video-badge').textContent = "Vídeo Personalizado";
+      document.getElementById('current-video-title').textContent = "Aula Carregada pelo Usuário";
+      document.getElementById('current-video-desc').textContent = "Reproduzindo vídeo escolhido diretamente no aplicativo.";
+      document.getElementById('current-video-yt-link').href = url;
+      showToast("Vídeo carregado no player!");
+    }
+
     function selectVideo(idx) {
       activeVideoIdx = idx;
       renderVideoLessons();
@@ -872,10 +782,7 @@
 
     // ==================== VOZ (TEXT-TO-SPEECH) ====================
     function speakText(text, rate = speechRate) {
-      if (!('speechSynthesis' in window)) {
-        showToast("Seu navegador não suporta áudio.");
-        return;
-      }
+      if (!('speechSynthesis' in window)) return showToast("Seu navegador não suporta áudio.");
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
@@ -940,13 +847,8 @@
       fb.innerHTML = '';
     }
 
-    function speakGuidedAI(rate) {
-      speakText(GUIDED_SCENARIOS[currentScenarioIdx].steps[currentStepIdx].aiEn, rate);
-    }
-
-    function speakTargetResponse() {
-      speakText(GUIDED_SCENARIOS[currentScenarioIdx].steps[currentStepIdx].targetEn, speechRate);
-    }
+    function speakGuidedAI(rate) { speakText(GUIDED_SCENARIOS[currentScenarioIdx].steps[currentStepIdx].aiEn, rate); }
+    function speakTargetResponse() { speakText(GUIDED_SCENARIOS[currentScenarioIdx].steps[currentStepIdx].targetEn, speechRate); }
 
     function nextGuidedStep() {
       const scenario = GUIDED_SCENARIOS[currentScenarioIdx];
@@ -963,44 +865,31 @@
 
     function startGuidedSpeech() {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        showToast("Use o Google Chrome para ativar o microfone.");
-        return;
-      }
+      if (!SpeechRecognition) return showToast("Use o Google Chrome para ativar o microfone.");
       const btn = document.getElementById('btn-guided-mic');
       const fb = document.getElementById('guided-feedback-box');
       const step = GUIDED_SCENARIOS[currentScenarioIdx].steps[currentStepIdx];
-
       const recognition = new SpeechRecognition();
       recognition.lang = 'en-US';
-      recognition.interimResults = false;
-
       btn.classList.add('mic-recording');
       btn.innerHTML = '<i class="fa-solid fa-ear-listen"></i><span>Ouvindo sua voz...</span>';
 
-      recognition.onresult = (event) => {
-        evaluateGuidedSpeech(event.results[0][0].transcript, step.targetEn);
-      };
-
+      recognition.onresult = (event) => evaluateGuidedSpeech(event.results[0][0].transcript, step.targetEn);
       recognition.onerror = (e) => {
         fb.classList.remove('hidden');
         fb.className = 'rounded-xl p-3.5 border bg-amber-50 border-amber-200 text-amber-900 text-xs';
         fb.innerHTML = `Não consegui ouvir claramente (${e.error}). Verifique a permissão do microfone.`;
       };
-
       recognition.onend = () => {
         btn.classList.remove('mic-recording');
         btn.innerHTML = '<i class="fa-solid fa-microphone"></i><span>Falar Resposta Agora</span>';
       };
-
       recognition.start();
     }
 
     function evaluateGuidedSpeech(spoken, target) {
       const clean = s => s.toLowerCase().replace(/[^\w\s']/g, '').trim().split(/\s+/);
-      const spokenWords = clean(spoken);
-      const targetWords = clean(target);
-
+      const spokenWords = clean(spoken), targetWords = clean(target);
       let matches = 0;
       const wordBadges = targetWords.map(tw => {
         if (spokenWords.includes(tw)) {
@@ -1014,7 +903,6 @@
       const score = Math.round((matches / targetWords.length) * 100);
       const fb = document.getElementById('guided-feedback-box');
       fb.classList.remove('hidden');
-
       if (score >= 75) {
         fb.className = 'rounded-xl p-3.5 border bg-emerald-50 border-emerald-200 text-emerald-950 text-xs sm:text-sm space-y-2';
         fb.innerHTML = `<div class="font-extrabold text-emerald-700">Excelente! Precisão: ${score}%</div><div>Você falou: <em>"${spoken}"</em></div><div>${wordBadges}</div>`;
@@ -1029,9 +917,7 @@
     function loadSavedGeminiKey() {
       const key = localStorage.getItem('izc_gemini_key') || '';
       document.getElementById('gemini-api-key').value = key;
-      document.getElementById('gemini-key-status').textContent = key
-        ? '✅ Chave salva no navegador.'
-        : 'ℹ️ Nenhuma chave salva. Cole sua chave gratuita acima para ativar.';
+      document.getElementById('gemini-key-status').textContent = key ? '✅ Chave salva no navegador.' : 'ℹ️ Nenhuma chave salva.';
     }
 
     function saveGeminiKey() {
@@ -1219,10 +1105,7 @@
       `;
     }
 
-    function selectLesson(id) {
-      activeLesson = id;
-      renderLessons();
-    }
+    function selectLesson(id) { activeLesson = id; renderLessons(); }
 
     function practiceLessonMic(targetText, idx) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1381,7 +1264,7 @@
       a.download = 'index.html';
       a.click();
       URL.revokeObjectURL(url);
-      showToast("index.html v4.0 baixado!");
+      showToast("index.html v4.1 baixado!");
     }
 
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
