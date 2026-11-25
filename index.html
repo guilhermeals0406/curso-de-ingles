@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Inglês Zero" />
-  <title>Inglês Zero Custo v4.2 — Videoaulas, Tutor IA & Voz</title>
+  <title>Inglês Zero Custo v5.0 — Aulas Interativas, Tutor IA & Voz</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/svg+xml" href="icon.svg" />
   <link rel="apple-touch-icon" href="icon.svg" />
@@ -63,7 +63,7 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">Inglês Zero Custo</h1>
-            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v4.2</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v5.0</span>
           </div>
           <p class="text-indigo-100 text-xs">Videoaulas • Tutor IA & Voz • Flashcards • Top Apps</p>
         </div>
@@ -137,14 +137,14 @@
   <!-- Conteúdo Principal -->
   <main class="max-w-6xl w-full mx-auto px-4 py-5 flex-1">
 
-    <!-- ==================== ABA 1: VIDEOAULAS GRATUITAS (SEM ERRO DE EMBED) ==================== -->
+    <!-- ==================== ABA 1: VIDEOAULAS & AULAS INTERATIVAS ==================== -->
     <section id="view-videoaulas" class="space-y-5">
       <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-100">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Trilha Visual Passo a Passo</span>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Videoaulas de Inglês do Zero</h2>
-            <p class="text-xs sm:text-sm text-slate-600">Acesse as aulas gratuitas direto no YouTube/Kultivi ou ouça o resumo falado de cada módulo aqui.</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Videoaulas & Guias Práticos do Zero</h2>
+            <p class="text-xs sm:text-sm text-slate-600">Estude a explicação rápida com áudio nativo abaixo e abra a videoaula completa no YouTube ou Kultivi.</p>
           </div>
           <div class="flex flex-wrap gap-2">
             <a href="https://kultivi.com/cursos/idiomas/ingles" target="_blank" rel="noopener" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow-sm transition flex items-center gap-1.5">
@@ -156,35 +156,36 @@
           </div>
         </div>
 
-        <!-- Painel da Aula Selecionada + Playlist -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <!-- Cartão Principal da Aula -->
           <div class="lg:col-span-2 space-y-4">
-            <!-- Banner Visual da Aula (Zero chance de "Vídeo indisponível") -->
-            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 border border-slate-800 shadow-md flex flex-col justify-between min-h-[260px] relative overflow-hidden">
-              <div class="space-y-2 relative z-10">
+            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-7 border border-slate-800 shadow-md space-y-4">
+              <div class="space-y-2">
                 <span id="current-video-badge" class="inline-block text-[11px] font-bold uppercase tracking-wider bg-rose-600 text-white px-3 py-1 rounded-full">Aula 1 • Iniciante</span>
                 <h3 id="current-video-title" class="text-xl sm:text-2xl font-extrabold leading-snug">Curso de Inglês do Zero — Aula 1 (Primeiros Passos)</h3>
-                <p id="current-video-desc" class="text-xs sm:text-sm text-slate-300 max-w-xl">Entenda como estruturar seus estudos do zero, pronúncia básica e primeiros cumprimentos.</p>
+                <p id="current-video-desc" class="text-xs sm:text-sm text-slate-300">Entenda como estruturar seus estudos do zero, pronúncia básica e primeiros cumprimentos.</p>
               </div>
 
-              <!-- Resumo Prático da Aula com Áudio -->
-              <div class="my-4 bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-3.5 space-y-2 relative z-10">
+              <!-- Explicação Prática da Aula -->
+              <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4 space-y-3">
                 <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-bold uppercase text-amber-300"><i class="fa-solid fa-lightbulb mr-1"></i> Frase-Chave desta Aula:</span>
-                  <button onclick="speakCurrentVideoSample()" class="text-xs font-bold bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg transition">
-                    <i class="fa-solid fa-volume-high mr-1"></i> Ouvir Exemplo
+                  <span class="text-[11px] font-bold uppercase text-amber-300"><i class="fa-solid fa-lightbulb mr-1"></i> Resumo Prático + Exemplo Falado:</span>
+                  <button onclick="speakCurrentVideoSample()" class="text-xs font-bold bg-indigo-500 hover:bg-indigo-400 text-white px-3 py-1.5 rounded-lg transition shadow">
+                    <i class="fa-solid fa-volume-high mr-1"></i> Ouvir Pronúncia
                   </button>
                 </div>
-                <p id="current-video-sample-en" class="text-sm sm:text-base font-bold text-white">"Hello! I am starting my English course today."</p>
-                <p id="current-video-sample-pt" class="text-xs text-indigo-200">"Olá! Estou começando meu curso de inglês hoje."</p>
+                <p id="current-video-tip" class="text-xs sm:text-sm text-slate-200 leading-relaxed"></p>
+                <div class="pt-2 border-t border-white/10">
+                  <p id="current-video-sample-en" class="text-sm sm:text-base font-extrabold text-white"></p>
+                  <p id="current-video-sample-pt" class="text-xs text-indigo-200 mt-0.5"></p>
+                </div>
               </div>
 
-              <!-- Botões de Ação Direta -->
-              <div class="flex flex-wrap items-center gap-3 relative z-10">
+              <!-- Botões de Ação -->
+              <div class="flex flex-wrap items-center gap-3 pt-1">
                 <a id="current-video-yt-link" href="https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi" target="_blank" rel="noopener" class="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
                   <i class="fa-brands fa-youtube text-lg"></i>
-                  <span>Assistir Aula no YouTube</span>
+                  <span>Abrir Videoaula no YouTube</span>
                 </a>
                 <button id="btn-mark-video" onclick="toggleCurrentVideoDone()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-3 rounded-xl transition flex items-center gap-1.5">
                   <i class="fa-solid fa-check"></i> <span>Concluir Aula</span>
@@ -192,7 +193,7 @@
               </div>
             </div>
 
-            <!-- Canais Recomendados Diretos -->
+            <!-- Canais Gratuitos -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <a href="https://www.youtube.com/@Kultivi/playlists" target="_blank" rel="noopener" class="p-3.5 rounded-xl border border-slate-200 hover:border-rose-300 bg-slate-50/70 hover:bg-white transition flex items-center gap-3">
                 <i class="fa-brands fa-youtube text-rose-600 text-xl"></i>
@@ -224,13 +225,13 @@
               <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Módulos em Vídeo</h4>
               <span id="video-progress-badge" class="text-xs font-bold text-indigo-600">0/6 concluídas</span>
             </div>
-            <div id="video-playlist" class="space-y-2 max-h-[420px] overflow-y-auto chat-scroll pr-1"></div>
+            <div id="video-playlist" class="space-y-2 max-h-[440px] overflow-y-auto chat-scroll pr-1"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== ABA 2: TUTOR IA & VOZ (HÍBRIDO) ==================== -->
+    <!-- ==================== ABA 2: TUTOR IA & VOZ ==================== -->
     <section id="view-tutor" class="hidden space-y-5">
       <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
@@ -479,7 +480,7 @@
           </div>
           <div class="flex flex-wrap gap-2">
             <button onclick="downloadCurrentHTML()" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2 shadow">
-              <i class="fa-solid fa-download"></i> Baixar index.html v4.2
+              <i class="fa-solid fa-download"></i> Baixar index.html v5.0
             </button>
           </div>
         </div>
@@ -495,13 +496,23 @@
   </div>
 
   <script>
-    // ==================== VIDEOAULAS (LINKS DIRETOS + ÁUDIO DE EXEMPLO) ====================
+    // ==================== LIMPEZA AUTOMÁTICA DE CACHE ANTIGO ====================
+    if ('caches' in window) {
+      caches.keys().then(names => {
+        names.forEach(name => {
+          if (!name.includes('v5')) caches.delete(name);
+        });
+      });
+    }
+
+    // ==================== VIDEOAULAS & GUIAS INTERATIVOS ====================
     const VIDEO_LESSONS = [
       {
         id: "v1",
         badge: "Aula 1 • Iniciante",
         title: "Curso de Inglês do Zero — Aula 1 (Primeiros Passos)",
         desc: "Entenda como estruturar seus estudos do zero, pronúncia básica e primeiros cumprimentos.",
+        tip: "No inglês, não lemos as palavras exatamente como se escrevem. Comece decorando blocos inteiros de comunicação (ex: 'I am' = Eu sou/estou) em vez de traduzir palavra por palavra.",
         ytUrl: "https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi",
         sampleEn: "Hello! I am starting my English course today.",
         samplePt: "Olá! Estou começando meu curso de inglês hoje.",
@@ -512,9 +523,10 @@
         badge: "Aula 2 • Pronúncia",
         title: "Alfabeto e Sons do Inglês (English in Brazil)",
         desc: "Aprenda a pronunciar cada som e evitar os erros mais comuns de brasileiros.",
+        tip: "Atenção ao som do 'TH' (como em 'Thank you'): coloque a ponta da língua levemente entre os dentes e sopre o ar. Evite falar 'Tenk you' com som de T duro.",
         ytUrl: "https://www.youtube.com/results?search_query=alfabeto+e+pronuncia+ingles+english+in+brazil",
-        sampleEn: "Can you spell your name, please?",
-        samplePt: "Você pode soletrar o seu nome, por favor?",
+        sampleEn: "Thank you for helping me spell my name.",
+        samplePt: "Obrigado por me ajudar a soletrar meu nome.",
         duration: "Módulo 2"
       },
       {
@@ -522,6 +534,7 @@
         badge: "Aula 3 • Estrutura",
         title: "Verbo To Be Sem Complicação na Prática",
         desc: "Como montar frases afirmativas, negativas e perguntas do dia a dia.",
+        tip: "O Verbo To Be significa 'ser' ou 'estar' ao mesmo tempo: 'I am' (Eu sou/estou), 'You are' (Você é/está), 'He/She is' (Ele/Ela é/está). Para perguntar, basta inverter: 'Are you ready?'",
         ytUrl: "https://www.youtube.com/results?search_query=verbo+to+be+aula+completa+ingles+iniciante",
         sampleEn: "I am a student and she is my teacher.",
         samplePt: "Eu sou um estudante e ela é minha professora.",
@@ -532,6 +545,7 @@
         badge: "Aula 4 • Vocabulário",
         title: "100 Frases Mais Usadas em Inglês com Áudio",
         desc: "Treine escuta e repetição com expressões reais do cotidiano.",
+        tip: "Use 'I would like...' (Eu gostaria de...) em restaurantes, lojas e hotéis. É muito mais educado do que dizer apenas 'I want...' (Eu quero).",
         ytUrl: "https://www.youtube.com/results?search_query=100+frases+mais+usadas+em+ingles+com+pronuncia",
         sampleEn: "I would like a glass of water, please.",
         samplePt: "Eu gostaria de um copo de água, por favor.",
@@ -542,6 +556,7 @@
         badge: "Aula 5 • Listening",
         title: "Treino de Escuta para Iniciantes (Diálogos Lentos)",
         desc: "Pratique compreensão auditiva com legendas em inglês e português.",
+        tip: "Nativos conectam as palavras na fala rápida (Connected Speech). Por exemplo, 'Where is' soa quase como 'Wheriz'. Ouça o exemplo ao lado e repita em voz alta.",
         ytUrl: "https://www.youtube.com/results?search_query=listening+ingles+iniciante+dialogos+com+legenda",
         sampleEn: "Excuse me, where is the nearest subway station?",
         samplePt: "Com licença, onde fica a estação de metrô mais próxima?",
@@ -552,6 +567,7 @@
         badge: "Aula 6 • Conversação",
         title: "Como Se Apresentar e Conversar em Inglês",
         desc: "Simulação prática para viagens, entrevistas e novos amigos.",
+        tip: "Ao conhecer alguém, responda com 'Nice to meet you!' (Prazer em conhecê-lo) e faça uma pergunta simples de volta usando 'Where are you from?' (De onde você é?).",
         ytUrl: "https://www.youtube.com/results?search_query=como+se+apresentar+em+ingles+iniciante",
         sampleEn: "Nice to meet you! Where are you from?",
         samplePt: "Prazer em conhecer você! De onde você é?",
@@ -560,7 +576,7 @@
     ];
 
     let activeVideoIdx = 0;
-    let completedVideos = JSON.parse(localStorage.getItem('izc_v4_videos') || '{}');
+    let completedVideos = JSON.parse(localStorage.getItem('izc_v5_videos') || '{}');
 
     // ==================== RANKING TOP APPS ====================
     const TOP_APPS_DATA = [
@@ -706,11 +722,11 @@
     ];
 
     // ==================== ESTADO & STORAGE ====================
-    let completedTasks = JSON.parse(localStorage.getItem('izc_v4_tasks') || '{}');
-    let flashcards = JSON.parse(localStorage.getItem('izc_v4_cards') || 'null');
+    let completedTasks = JSON.parse(localStorage.getItem('izc_v5_tasks') || '{}');
+    let flashcards = JSON.parse(localStorage.getItem('izc_v5_cards') || 'null');
     if (!flashcards) {
       flashcards = DEFAULT_CARDS;
-      localStorage.setItem('izc_v4_cards', JSON.stringify(flashcards));
+      localStorage.setItem('izc_v5_cards', JSON.stringify(flashcards));
     }
     let activeLesson = 1;
     let currentReviewQueue = [];
@@ -728,7 +744,7 @@
       }
       localStorage.setItem('izc_last_visit', today);
       localStorage.setItem('izc_streak', streak.toString());
-      document.getElementById('streak-text').textContent = `${streak} ${streak === 1 ? 'dia' : 'dias'}`;
+      document.getElementById('streak-text').textContent = `${streak}${streak === 1 ? 'dia' : 'dias'}`;
     }
 
     function showToast(msg) {
@@ -741,13 +757,11 @@
     function switchTab(tabName) {
       const tabs = ['videoaulas', 'tutor', 'cronograma', 'aulas', 'flashcards', 'nivel', 'recursos'];
       tabs.forEach(t => {
-        document.getElementById(`view-${t}`).classList.add('hidden');
-        const btn = document.getElementById(`tab-${t}`);
+        document.getElementById(`view-${t}`).classList.add('hidden'); const btn = document.getElementById(`tab-${t}`);
         btn.classList.remove('tab-active');
         btn.classList.add('tab-inactive');
       });
-      document.getElementById(`view-${tabName}`).classList.remove('hidden');
-      const activeBtn = document.getElementById(`tab-${tabName}`);
+      document.getElementById(`view-${tabName}`).classList.remove('hidden'); const activeBtn = document.getElementById(`tab-${tabName}`);
       activeBtn.classList.remove('tab-inactive');
       activeBtn.classList.add('tab-active');
       if (tabName === 'flashcards') refreshFlashcardsUI();
@@ -756,11 +770,11 @@
     // ==================== VIDEOAULAS ====================
     function renderVideoLessons() {
       const v = VIDEO_LESSONS[activeVideoIdx];
-      document.getElementById('current-video-badge').textContent = `${v.badge} • ${v.duration}`;
+      document.getElementById('current-video-badge').textContent = `${v.badge} •${v.duration}`;
       document.getElementById('current-video-title').textContent = v.title;
       document.getElementById('current-video-desc').textContent = v.desc;
-      document.getElementById('current-video-sample-en').textContent = `"${v.sampleEn}"`;
-      document.getElementById('current-video-sample-pt').textContent = `"${v.samplePt}"`;
+      document.getElementById('current-video-tip').textContent = v.tip;
+      document.getElementById('current-video-sample-en').textContent = `"${v.sampleEn}"`; document.getElementById('current-video-sample-pt').textContent = `"${v.samplePt}"`;
       document.getElementById('current-video-yt-link').href = v.ytUrl;
 
       const isDone = !!completedVideos[v.id];
@@ -786,7 +800,7 @@
               <i class="fa-solid ${done ? 'fa-check' : 'fa-play'} text-xs"></i>
             </div>
             <div class="min-w-0 flex-1">
-              <div class="text-[10px] font-bold uppercase text-indigo-600">${item.badge} • ${item.duration}</div>
+              <div class="text-[10px] font-bold uppercase text-indigo-600">${item.badge} •${item.duration}</div>
               <div class="text-xs font-bold text-slate-900 truncate">${item.title}</div>
             </div>
           </button>
@@ -806,7 +820,7 @@
     function toggleCurrentVideoDone() {
       const v = VIDEO_LESSONS[activeVideoIdx];
       completedVideos[v.id] = !completedVideos[v.id];
-      localStorage.setItem('izc_v4_videos', JSON.stringify(completedVideos));
+      localStorage.setItem('izc_v5_videos', JSON.stringify(completedVideos));
       renderVideoLessons();
       if (completedVideos[v.id]) showToast("Aula marcada como concluída!");
     }
@@ -828,51 +842,7 @@
       speechRate = rate;
       document.getElementById('rate-1').className = rate === 1.0 ? 'text-xs font-bold px-2 py-1 rounded bg-indigo-600 text-white' : 'text-xs font-bold px-2 py-1 rounded text-slate-600 hover:bg-slate-100';
       document.getElementById('rate-07').className = rate === 0.7 ? 'text-xs font-bold px-2 py-1 rounded bg-indigo-600 text-white' : 'text-xs font-bold px-2 py-1 rounded text-slate-600 hover:bg-slate-100';
-      showToast(`Velocidade: ${rate}x`);
-    }
-
-    // ==================== TUTOR IA & VOZ ====================
-    function setTutorMode(mode) {
-      const guidedPanel = document.getElementById('tutor-guided-panel');
-      const geminiPanel = document.getElementById('tutor-gemini-panel');
-      const btnGuided = document.getElementById('btn-mode-guided');
-      const btnGemini = document.getElementById('btn-mode-gemini');
-
-      if (mode === 'guided') {
-        guidedPanel.classList.remove('hidden');
-        geminiPanel.classList.add('hidden');
-        btnGuided.className = 'px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition';
-        btnGemini.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition';
-      } else {
-        guidedPanel.classList.add('hidden');
-        geminiPanel.classList.remove('hidden');
-        btnGemini.className = 'px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition';
-        btnGuided.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition';
-        loadSavedGeminiKey();
-      }
-    }
-
-    function loadScenario() {
-      currentScenarioIdx = parseInt(document.getElementById('scenario-select').value, 10);
-      currentStepIdx = 0;
-      renderGuidedStep();
-    }
-
-    function resetScenario() {
-      currentStepIdx = 0;
-      renderGuidedStep();
-      showToast("Cenário reiniciado.");
-    }
-
-    function renderGuidedStep() {
-      const scenario = GUIDED_SCENARIOS[currentScenarioIdx];
-      const step = scenario.steps[currentStepIdx];
-      document.getElementById('guided-step-label').textContent = `Turno ${currentStepIdx + 1} de ${scenario.steps.length}`;
-      document.getElementById('guided-ai-en').textContent = step.aiEn;
-      document.getElementById('guided-ai-pt').textContent = step.aiPt;
-      document.getElementById('guided-user-target').textContent = step.targetEn;
-      document.getElementById('guided-user-pt').textContent = step.targetPt;
-      document.getElementById('guided-user-phonetic').textContent = `Pronúncia: ${step.phonetic}`;
+      showToast(`Velocidade: ${rate}x`); }  // ==================== TUTOR IA & VOZ ==================== function setTutorMode(mode) { const guidedPanel = document.getElementById('tutor-guided-panel'); const geminiPanel = document.getElementById('tutor-gemini-panel'); const btnGuided = document.getElementById('btn-mode-guided'); const btnGemini = document.getElementById('btn-mode-gemini');  if (mode === 'guided') { guidedPanel.classList.remove('hidden'); geminiPanel.classList.add('hidden'); btnGuided.className = 'px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition'; btnGemini.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition'; } else { guidedPanel.classList.add('hidden'); geminiPanel.classList.remove('hidden'); btnGemini.className = 'px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition'; btnGuided.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition'; loadSavedGeminiKey(); } }  function loadScenario() { currentScenarioIdx = parseInt(document.getElementById('scenario-select').value, 10); currentStepIdx = 0; renderGuidedStep(); }  function resetScenario() { currentStepIdx = 0; renderGuidedStep(); showToast("Cenário reiniciado."); }  function renderGuidedStep() { const scenario = GUIDED_SCENARIOS[currentScenarioIdx]; const step = scenario.steps[currentStepIdx]; document.getElementById('guided-step-label').textContent = `Turno ${currentStepIdx + 1} de ${scenario.steps.length}`; document.getElementById('guided-ai-en').textContent = step.aiEn; document.getElementById('guided-ai-pt').textContent = step.aiPt; document.getElementById('guided-user-target').textContent = step.targetEn; document.getElementById('guided-user-pt').textContent = step.targetPt; document.getElementById('guided-user-phonetic').textContent = `Pronúncia: ${step.phonetic}`;
       const fb = document.getElementById('guided-feedback-box');
       fb.classList.add('hidden');
       fb.innerHTML = '';
@@ -995,14 +965,7 @@
       const prompt = "You are a friendly English tutor for a Brazilian beginner. Reply in two short parts: 1) 'Correction & Tip:' (in Portuguese, gently correcting any error or praising). 2) 'Reply:' (in simple A1/A2 English continuing with one question). Student said: " + userMsg;
 
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] })
-        });
-        const data = await res.json();
-        document.getElementById(loadingId)?.remove();
-        if (data.error) return appendChatBubble('ai', `Erro: ${data.error.message}`);
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] }) }); const data = await res.json(); document.getElementById(loadingId)?.remove(); if (data.error) return appendChatBubble('ai', `Erro: ${data.error.message}`);
 
         const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response.";
         appendChatBubble('ai', aiText, null, true);
@@ -1028,8 +991,7 @@
         div.innerHTML = `
           <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">AI</div>
           <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3 text-xs sm:text-sm text-slate-800 max-w-lg shadow-sm space-y-2">
-            <div>${formatted}</div>
-            ${showAudioBtn ? `<button onclick="speakText('${safeText.split(/Reply:/i).pop()}', 0.95)" class="text-xs font-bold text-indigo-600 hover:underline"><i class="fa-solid fa-volume-high mr-1"></i> Ouvir</button>` : ''}
+            <div>${formatted}</div>${showAudioBtn ? `<button onclick="speakText('${safeText.split(/Reply:/i).pop()}', 0.95)" class="text-xs font-bold text-indigo-600 hover:underline"><i class="fa-solid fa-volume-high mr-1"></i> Ouvir</button>` : ''}
           </div>
         `;
       }
@@ -1079,19 +1041,18 @@
       });
 
       const pct = total ? Math.round((done / total) * 100) : 0;
-      document.getElementById('header-progress-text').textContent = `${pct}%`;
-      document.getElementById('header-progress-bar').style.width = `${pct}%`;
+      document.getElementById('header-progress-text').textContent = `${pct}\%`; document.getElementById('header-progress-bar').style.width = `${pct}%`;
     }
 
     function toggleTask(id) {
       completedTasks[id] = !completedTasks[id];
-      localStorage.setItem('izc_v4_tasks', JSON.stringify(completedTasks));
+      localStorage.setItem('izc_v5_tasks', JSON.stringify(completedTasks));
       renderSchedule();
     }
 
     function resetSchedule() {
       completedTasks = {};
-      localStorage.setItem('izc_v4_tasks', JSON.stringify(completedTasks));
+      localStorage.setItem('izc_v5_tasks', JSON.stringify(completedTasks));
       renderSchedule();
       showToast("Cronograma reiniciado!");
     }
@@ -1142,30 +1103,7 @@
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) return showToast("Use o Chrome para ativar o microfone.");
       const btn = document.getElementById(`mic-btn-${idx}`);
-      const resBox = document.getElementById(`mic-result-${idx}`);
-      const recognition = new SpeechRecognition();
-      recognition.lang = 'en-US';
-      btn.classList.add('mic-recording');
-      recognition.onresult = (e) => {
-        const spoken = e.results[0][0].transcript;
-        const clean = s => s.toLowerCase().replace(/[^\w\s]/g, '').trim().split(/\s+/);
-        const sWords = clean(spoken), tWords = clean(targetText);
-        const hits = tWords.filter(w => sWords.includes(w)).length;
-        const pct = Math.round((hits / tWords.length) * 100);
-        resBox.classList.remove('hidden');
-        resBox.className = pct >= 70 ? 'text-xs p-2.5 rounded-lg bg-emerald-100 text-emerald-900 font-semibold' : 'text-xs p-2.5 rounded-lg bg-amber-100 text-amber-900 font-semibold';
-        resBox.innerHTML = `Você falou: "${spoken}" — Precisão: ${pct}%`;
-      };
-      recognition.onend = () => btn.classList.remove('mic-recording');
-      recognition.start();
-    }
-
-    // ==================== FLASHCARDS SRS ====================
-    function refreshFlashcardsUI() {
-      const now = Date.now();
-      currentReviewQueue = flashcards.filter(c => c.nextReview <= now);
-      document.getElementById('due-badge').textContent = currentReviewQueue.length;
-      document.getElementById('srs-counter').textContent = `${currentReviewQueue.length} para revisar`;
+      const resBox = document.getElementById(`mic-result-${idx}`); const recognition = new SpeechRecognition(); recognition.lang = 'en-US'; btn.classList.add('mic-recording'); recognition.onresult = (e) => { const spoken = e.results[0][0].transcript; const clean = s => s.toLowerCase().replace(/[^\w\s]/g, '').trim().split(/\s+/); const sWords = clean(spoken), tWords = clean(targetText); const hits = tWords.filter(w => sWords.includes(w)).length; const pct = Math.round((hits / tWords.length) * 100); resBox.classList.remove('hidden'); resBox.className = pct >= 70 ? 'text-xs p-2.5 rounded-lg bg-emerald-100 text-emerald-900 font-semibold' : 'text-xs p-2.5 rounded-lg bg-amber-100 text-amber-900 font-semibold'; resBox.innerHTML = `Você falou: "${spoken}" — Precisão: ${pct}\%`; }; recognition.onend = () => btn.classList.remove('mic-recording'); recognition.start(); }  // ==================== FLASHCARDS SRS ==================== function refreshFlashcardsUI() { const now = Date.now(); currentReviewQueue = flashcards.filter(c => c.nextReview <= now); document.getElementById('due-badge').textContent = currentReviewQueue.length; document.getElementById('srs-counter').textContent = `${currentReviewQueue.length} para revisar`;
       document.getElementById('total-cards-count').textContent = flashcards.length;
       isCardFlipped = false;
       renderCurrentCard();
@@ -1186,132 +1124,4 @@
         area.innerHTML = `<div class="space-y-3"><span class="text-[11px] font-bold uppercase text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Inglês</span><p class="text-xl sm:text-2xl font-extrabold text-slate-900">${card.en}</p><button onclick="speakText('${card.en.replace(/'/g, "\\'")}')" class="text-xs font-bold text-indigo-600 hover:underline"><i class="fa-solid fa-volume-high mr-1"></i> Ouvir</button></div>`;
         controls.innerHTML = `<button onclick="flipCard()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm py-3 rounded-xl">Mostrar Tradução</button>`;
       } else {
-        area.innerHTML = `<div class="space-y-2"><p class="text-lg font-bold text-slate-900">${card.en}</p><div class="h-px bg-slate-200 w-24 mx-auto my-2"></div><p class="text-base sm:text-lg font-semibold text-emerald-700">${card.pt}</p></div>`;
-        controls.innerHTML = `<div class="grid grid-cols-3 gap-2"><button onclick="rateCard(0)" class="bg-rose-100 text-rose-800 font-bold text-xs py-2.5 rounded-xl">Difícil</button><button onclick="rateCard(1)" class="bg-amber-100 text-amber-800 font-bold text-xs py-2.5 rounded-xl">Bom (1d)</button><button onclick="rateCard(3)" class="bg-emerald-100 text-emerald-800 font-bold text-xs py-2.5 rounded-xl">Fácil (3d)</button></div>`;
-      }
-    }
-
-    function flipCard() { isCardFlipped = true; renderCurrentCard(); }
-
-    function rateCard(days) {
-      const card = currentReviewQueue[0];
-      const idx = flashcards.findIndex(c => c.id === card.id);
-      if (idx > -1) {
-        flashcards[idx].nextReview = days === 0 ? Date.now() + 60000 : Date.now() + days * 86400000;
-        localStorage.setItem('izc_v4_cards', JSON.stringify(flashcards));
-      }
-      refreshFlashcardsUI();
-    }
-
-    function addCustomCard() {
-      const en = document.getElementById('new-card-en').value.trim();
-      const pt = document.getElementById('new-card-pt').value.trim();
-      if (!en || !pt) return showToast("Preencha os dois campos.");
-      flashcards.unshift({ id: 'c-' + Date.now(), en, pt, nextReview: 0, interval: 1 });
-      localStorage.setItem('izc_v4_cards', JSON.stringify(flashcards));
-      document.getElementById('new-card-en').value = '';
-      document.getElementById('new-card-pt').value = '';
-      refreshFlashcardsUI();
-      showToast("Cartão adicionado!");
-    }
-
-    function resetAllFlashcards() {
-      flashcards.forEach(c => c.nextReview = 0);
-      localStorage.setItem('izc_v4_cards', JSON.stringify(flashcards));
-      refreshFlashcardsUI();
-    }
-
-    // ==================== SIMULADO CEFR ====================
-    function renderCEFRTest() {
-      const container = document.getElementById('cefr-test-container');
-      if (cefrSubmitted) {
-        let score = 0;
-        CEFR_QUESTIONS.forEach((q, idx) => { if (cefrAnswers[idx] === q.ans) score++; });
-        const level = score <= 2 ? 'Pré-A1 (Iniciante)' : score <= 4 ? 'A1 (Básico)' : score <= 6 ? 'A2 (Elementar)' : 'B1 (Intermediário)';
-        localStorage.setItem('izc_last_cefr', `${level} (${score}/${CEFR_QUESTIONS.length})`);
-        updateCEFRBadge();
-        container.innerHTML = `<div class="bg-indigo-50 border border-indigo-200 rounded-xl p-5 text-center space-y-3"><div class="text-xs font-bold uppercase text-indigo-600">Resultado</div><div class="text-2xl font-extrabold text-slate-900">${level}</div><p class="text-sm text-slate-600">Você acertou <strong>${score} de ${CEFR_QUESTIONS.length}</strong>.</p><button onclick="resetCEFRTest()" class="bg-indigo-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Refazer</button></div>`;
-        return;
-      }
-      container.innerHTML = `<div class="space-y-4">${CEFR_QUESTIONS.map((item, qIdx) => `<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 space-y-2"><div class="text-xs sm:text-sm font-bold text-slate-900">${item.q}</div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2">${item.options.map((opt, oIdx) => `<button onclick="selectCEFRAnswer(${qIdx}, ${oIdx})" class="text-left text-xs px-3 py-2 rounded-lg border transition ${cefrAnswers[qIdx] === oIdx ? 'bg-indigo-600 text-white border-indigo-600 font-bold' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'}">${opt}</button>`).join('')}</div></div>`).join('')}<button onclick="submitCEFRTest()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3 rounded-xl">Ver Meu Nível CEFR</button></div>`;
-    }
-
-    function selectCEFRAnswer(qIdx, oIdx) { cefrAnswers[qIdx] = oIdx; renderCEFRTest(); }
-    function submitCEFRTest() { cefrSubmitted = true; renderCEFRTest(); }
-    function resetCEFRTest() { cefrAnswers = {}; cefrSubmitted = false; renderCEFRTest(); }
-    function updateCEFRBadge() {
-      const saved = localStorage.getItem('izc_last_cefr');
-      const badge = document.getElementById('last-cefr-badge');
-      if (saved) { badge.classList.remove('hidden'); badge.textContent = `Último nível: ${saved}`; }
-    }
-
-    // ==================== STATIC CARDS ====================
-    function renderStaticCards() {
-      document.getElementById('official-tests-grid').innerHTML = OFFICIAL_TESTS.map(t => `
-        <a href="${t.url}" target="_blank" rel="noopener" class="block bg-white rounded-2xl p-5 border border-slate-200 hover:border-indigo-300 shadow-sm transition group">
-          <span class="text-[11px] font-bold bg-indigo-50 text-indigo-700 px-2.5 py-0.5 rounded-full">${t.badge}</span>
-          <h4 class="font-bold text-slate-900 mt-2 group-hover:text-indigo-600">${t.name} <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></h4>
-          <p class="text-xs text-slate-600 mt-1">${t.desc}</p>
-        </a>
-      `).join('');
-
-      document.getElementById('top-apps-grid').innerHTML = TOP_APPS_DATA.map(app => `
-        <a href="${app.url}" target="_blank" rel="noopener" class="block bg-slate-50/70 hover:bg-white rounded-2xl p-4 border border-slate-200 hover:border-indigo-300 shadow-sm transition group">
-          <div class="flex items-center justify-between">
-            <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full ${app.badgeColor}">${app.rank}</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-indigo-600"></i>
-          </div>
-          <h4 class="font-extrabold text-slate-900 mt-2.5 group-hover:text-indigo-600">${app.name}</h4>
-          <div class="text-[11px] font-semibold text-indigo-600 mt-0.5">${app.focus}</div>
-          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">${app.desc}</p>
-        </a>
-      `).join('');
-    }
-
-    // ==================== PWA & DOWNLOAD ====================
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      const btn = document.getElementById('btn-install-app');
-      btn.classList.remove('hidden');
-      btn.classList.add('flex');
-    });
-
-    async function installPWA() {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      document.getElementById('btn-install-app').classList.add('hidden');
-    }
-
-    function downloadCurrentHTML() {
-      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'index.html';
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast("index.html v4.2 baixado!");
-    }
-
-    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
-    }
-
-    // ==================== INICIALIZAÇÃO ====================
-    updateStreak();
-    renderVideoLessons();
-    renderGuidedStep();
-    renderSchedule();
-    renderLessons();
-    refreshFlashcardsUI();
-    renderCEFRTest();
-    updateCEFRBadge();
-    renderStaticCards();
-  </script>
-</body>
-</html>
+        area.innerHTML = `<div class
