@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Inglês Zero" />
-  <title>Inglês Zero Custo v4.1 — Videoaulas, Tutor IA & Voz</title>
+  <title>Inglês Zero Custo v4.2 — Videoaulas, Tutor IA & Voz</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/svg+xml" href="icon.svg" />
   <link rel="apple-touch-icon" href="icon.svg" />
@@ -63,7 +63,7 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">Inglês Zero Custo</h1>
-            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v4.1</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full">v4.2</span>
           </div>
           <p class="text-indigo-100 text-xs">Videoaulas • Tutor IA & Voz • Flashcards • Top Apps</p>
         </div>
@@ -137,17 +137,17 @@
   <!-- Conteúdo Principal -->
   <main class="max-w-6xl w-full mx-auto px-4 py-5 flex-1">
 
-    <!-- ==================== ABA 1: VIDEOAULAS GRATUITAS ==================== -->
+    <!-- ==================== ABA 1: VIDEOAULAS GRATUITAS (SEM ERRO DE EMBED) ==================== -->
     <section id="view-videoaulas" class="space-y-5">
       <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-100">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Trilha Visual Passo a Passo</span>
             <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Videoaulas de Inglês do Zero</h2>
-            <p class="text-xs sm:text-sm text-slate-600">Escolha um módulo abaixo ou cole qualquer link do YouTube para assistir sem sair do app.</p>
+            <p class="text-xs sm:text-sm text-slate-600">Acesse as aulas gratuitas direto no YouTube/Kultivi ou ouça o resumo falado de cada módulo aqui.</p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <a href="https://kultivi.com/cursos/idiomas/ingles" target="_blank" rel="noopener" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs px-3.5 py-2.5 rounded-xl border border-indigo-200 transition flex items-center gap-1.5">
+            <a href="https://kultivi.com/cursos/idiomas/ingles" target="_blank" rel="noopener" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow-sm transition flex items-center gap-1.5">
               <i class="fa-solid fa-certificate"></i> Curso Completo Kultivi (225 aulas)
             </a>
             <a href="https://aprendamais.mec.gov.br/" target="_blank" rel="noopener" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs px-3.5 py-2.5 rounded-xl border border-emerald-200 transition flex items-center gap-1.5">
@@ -156,35 +156,65 @@
           </div>
         </div>
 
-        <!-- Campo para Colar Qualquer Link do YouTube -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row gap-2">
-          <input type="text" id="custom-yt-url" placeholder="Cole aqui o link de qualquer aula do YouTube (ex: https://youtu.be/...)" class="flex-1 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-indigo-500" />
-          <button onclick="loadCustomYouTubeVideo()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition flex items-center justify-center gap-1.5 flex-shrink-0">
-            <i class="fa-brands fa-youtube"></i> Carregar Vídeo
-          </button>
-        </div>
-
-        <!-- Player Principal + Lista de Aulas -->
+        <!-- Painel da Aula Selecionada + Playlist -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <!-- Player de Vídeo -->
-          <div class="lg:col-span-2 space-y-3">
-            <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner">
-              <iframe id="video-player-frame" class="w-full h-full" src="https://www.youtube.com/embed?listType=search&list=curso+de+ingles+do+zero+aula+1+kultivi" title="Videoaula de Inglês" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <div>
-                <span id="current-video-badge" class="text-[11px] font-bold uppercase bg-indigo-100 text-indigo-700 px-2.5 py-0.5 rounded-full">Aula 1 • Iniciante</span>
-                <h3 id="current-video-title" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Curso de Inglês do Zero — Aula 1 (Primeiros Passos)</h3>
-                <p id="current-video-desc" class="text-xs text-slate-600 mt-0.5">Playlist dinâmica de aulas gratuitas para começar do absoluto zero.</p>
+          <!-- Cartão Principal da Aula -->
+          <div class="lg:col-span-2 space-y-4">
+            <!-- Banner Visual da Aula (Zero chance de "Vídeo indisponível") -->
+            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 border border-slate-800 shadow-md flex flex-col justify-between min-h-[260px] relative overflow-hidden">
+              <div class="space-y-2 relative z-10">
+                <span id="current-video-badge" class="inline-block text-[11px] font-bold uppercase tracking-wider bg-rose-600 text-white px-3 py-1 rounded-full">Aula 1 • Iniciante</span>
+                <h3 id="current-video-title" class="text-xl sm:text-2xl font-extrabold leading-snug">Curso de Inglês do Zero — Aula 1 (Primeiros Passos)</h3>
+                <p id="current-video-desc" class="text-xs sm:text-sm text-slate-300 max-w-xl">Entenda como estruturar seus estudos do zero, pronúncia básica e primeiros cumprimentos.</p>
               </div>
-              <div class="flex items-center gap-2 flex-shrink-0">
-                <button id="btn-mark-video" onclick="toggleCurrentVideoDone()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5">
+
+              <!-- Resumo Prático da Aula com Áudio -->
+              <div class="my-4 bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-3.5 space-y-2 relative z-10">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold uppercase text-amber-300"><i class="fa-solid fa-lightbulb mr-1"></i> Frase-Chave desta Aula:</span>
+                  <button onclick="speakCurrentVideoSample()" class="text-xs font-bold bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg transition">
+                    <i class="fa-solid fa-volume-high mr-1"></i> Ouvir Exemplo
+                  </button>
+                </div>
+                <p id="current-video-sample-en" class="text-sm sm:text-base font-bold text-white">"Hello! I am starting my English course today."</p>
+                <p id="current-video-sample-pt" class="text-xs text-indigo-200">"Olá! Estou começando meu curso de inglês hoje."</p>
+              </div>
+
+              <!-- Botões de Ação Direta -->
+              <div class="flex flex-wrap items-center gap-3 relative z-10">
+                <a id="current-video-yt-link" href="https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi" target="_blank" rel="noopener" class="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
+                  <i class="fa-brands fa-youtube text-lg"></i>
+                  <span>Assistir Aula no YouTube</span>
+                </a>
+                <button id="btn-mark-video" onclick="toggleCurrentVideoDone()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-3 rounded-xl transition flex items-center gap-1.5">
                   <i class="fa-solid fa-check"></i> <span>Concluir Aula</span>
                 </button>
-                <a id="current-video-yt-link" href="https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi" target="_blank" rel="noopener" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-xs px-3 py-2.5 rounded-xl transition flex items-center gap-1.5" title="Ver mais aulas no YouTube">
-                  <i class="fa-brands fa-youtube text-rose-600"></i> <span>YouTube</span>
-                </a>
               </div>
+            </div>
+
+            <!-- Canais Recomendados Diretos -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <a href="https://www.youtube.com/@Kultivi/playlists" target="_blank" rel="noopener" class="p-3.5 rounded-xl border border-slate-200 hover:border-rose-300 bg-slate-50/70 hover:bg-white transition flex items-center gap-3">
+                <i class="fa-brands fa-youtube text-rose-600 text-xl"></i>
+                <div>
+                  <div class="text-xs font-extrabold text-slate-900">Canal Kultivi</div>
+                  <div class="text-[11px] text-slate-500">Playlist completa do zero</div>
+                </div>
+              </a>
+              <a href="https://www.youtube.com/@EnglishinBrazil/playlists" target="_blank" rel="noopener" class="p-3.5 rounded-xl border border-slate-200 hover:border-rose-300 bg-slate-50/70 hover:bg-white transition flex items-center gap-3">
+                <i class="fa-brands fa-youtube text-rose-600 text-xl"></i>
+                <div>
+                  <div class="text-xs font-extrabold text-slate-900">English in Brazil</div>
+                  <div class="text-[11px] text-slate-500">Pronúncia e gramática</div>
+                </div>
+              </a>
+              <a href="https://www.youtube.com/@bbclearningenglish/playlists" target="_blank" rel="noopener" class="p-3.5 rounded-xl border border-slate-200 hover:border-rose-300 bg-slate-50/70 hover:bg-white transition flex items-center gap-3">
+                <i class="fa-brands fa-youtube text-rose-600 text-xl"></i>
+                <div>
+                  <div class="text-xs font-extrabold text-slate-900">BBC Learning English</div>
+                  <div class="text-[11px] text-slate-500">Aulas curtas de 6 min</div>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -449,7 +479,7 @@
           </div>
           <div class="flex flex-wrap gap-2">
             <button onclick="downloadCurrentHTML()" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2 shadow">
-              <i class="fa-solid fa-download"></i> Baixar index.html v4.1
+              <i class="fa-solid fa-download"></i> Baixar index.html v4.2
             </button>
           </div>
         </div>
@@ -465,14 +495,16 @@
   </div>
 
   <script>
-    // ==================== VIDEOAULAS (BUSCA EMBUTIDA NATIVA DO YOUTUBE) ====================
+    // ==================== VIDEOAULAS (LINKS DIRETOS + ÁUDIO DE EXEMPLO) ====================
     const VIDEO_LESSONS = [
       {
         id: "v1",
         badge: "Aula 1 • Iniciante",
         title: "Curso de Inglês do Zero — Aula 1 (Primeiros Passos)",
-        desc: "Aulas gratuitas para começar do absoluto zero com pronúncia e estrutura.",
-        searchQuery: "curso+de+ingles+do+zero+aula+1+kultivi",
+        desc: "Entenda como estruturar seus estudos do zero, pronúncia básica e primeiros cumprimentos.",
+        ytUrl: "https://www.youtube.com/results?search_query=curso+de+ingles+do+zero+aula+1+kultivi",
+        sampleEn: "Hello! I am starting my English course today.",
+        samplePt: "Olá! Estou começando meu curso de inglês hoje.",
         duration: "Módulo 1"
       },
       {
@@ -480,7 +512,9 @@
         badge: "Aula 2 • Pronúncia",
         title: "Alfabeto e Sons do Inglês (English in Brazil)",
         desc: "Aprenda a pronunciar cada som e evitar os erros mais comuns de brasileiros.",
-        searchQuery: "alfabeto+e+pronuncia+ingles+english+in+brazil",
+        ytUrl: "https://www.youtube.com/results?search_query=alfabeto+e+pronuncia+ingles+english+in+brazil",
+        sampleEn: "Can you spell your name, please?",
+        samplePt: "Você pode soletrar o seu nome, por favor?",
         duration: "Módulo 2"
       },
       {
@@ -488,7 +522,9 @@
         badge: "Aula 3 • Estrutura",
         title: "Verbo To Be Sem Complicação na Prática",
         desc: "Como montar frases afirmativas, negativas e perguntas do dia a dia.",
-        searchQuery: "verbo+to+be+aula+completa+ingles+iniciante",
+        ytUrl: "https://www.youtube.com/results?search_query=verbo+to+be+aula+completa+ingles+iniciante",
+        sampleEn: "I am a student and she is my teacher.",
+        samplePt: "Eu sou um estudante e ela é minha professora.",
         duration: "Módulo 3"
       },
       {
@@ -496,7 +532,9 @@
         badge: "Aula 4 • Vocabulário",
         title: "100 Frases Mais Usadas em Inglês com Áudio",
         desc: "Treine escuta e repetição com expressões reais do cotidiano.",
-        searchQuery: "100+frases+mais+usadas+em+ingles+com+pronuncia",
+        ytUrl: "https://www.youtube.com/results?search_query=100+frases+mais+usadas+em+ingles+com+pronuncia",
+        sampleEn: "I would like a glass of water, please.",
+        samplePt: "Eu gostaria de um copo de água, por favor.",
         duration: "Módulo 4"
       },
       {
@@ -504,7 +542,9 @@
         badge: "Aula 5 • Listening",
         title: "Treino de Escuta para Iniciantes (Diálogos Lentos)",
         desc: "Pratique compreensão auditiva com legendas em inglês e português.",
-        searchQuery: "listening+ingles+iniciante+dialogos+com+legenda",
+        ytUrl: "https://www.youtube.com/results?search_query=listening+ingles+iniciante+dialogos+com+legenda",
+        sampleEn: "Excuse me, where is the nearest subway station?",
+        samplePt: "Com licença, onde fica a estação de metrô mais próxima?",
         duration: "Módulo 5"
       },
       {
@@ -512,7 +552,9 @@
         badge: "Aula 6 • Conversação",
         title: "Como Se Apresentar e Conversar em Inglês",
         desc: "Simulação prática para viagens, entrevistas e novos amigos.",
-        searchQuery: "como+se+apresentar+em+ingles+iniciante",
+        ytUrl: "https://www.youtube.com/results?search_query=como+se+apresentar+em+ingles+iniciante",
+        sampleEn: "Nice to meet you! Where are you from?",
+        samplePt: "Prazer em conhecer você! De onde você é?",
         duration: "Módulo 6"
       }
     ];
@@ -711,22 +753,23 @@
       if (tabName === 'flashcards') refreshFlashcardsUI();
     }
 
-    // ==================== VIDEOAULAS (BUSCA EMBUTIDA + LINK CUSTOMIZADO) ====================
+    // ==================== VIDEOAULAS ====================
     function renderVideoLessons() {
       const v = VIDEO_LESSONS[activeVideoIdx];
-      document.getElementById('video-player-frame').src = `https://www.youtube.com/embed?listType=search&list=${v.searchQuery}`;
       document.getElementById('current-video-badge').textContent = `${v.badge} • ${v.duration}`;
       document.getElementById('current-video-title').textContent = v.title;
       document.getElementById('current-video-desc').textContent = v.desc;
-      document.getElementById('current-video-yt-link').href = `https://www.youtube.com/results?search_query=${v.searchQuery}`;
+      document.getElementById('current-video-sample-en').textContent = `"${v.sampleEn}"`;
+      document.getElementById('current-video-sample-pt').textContent = `"${v.samplePt}"`;
+      document.getElementById('current-video-yt-link').href = v.ytUrl;
 
       const isDone = !!completedVideos[v.id];
       const markBtn = document.getElementById('btn-mark-video');
       if (isDone) {
-        markBtn.className = 'bg-slate-200 text-slate-800 font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5';
-        markBtn.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600"></i> <span>Aula Concluída</span>';
+        markBtn.className = 'bg-white/20 text-white font-bold text-xs sm:text-sm px-4 py-3 rounded-xl transition flex items-center gap-1.5 border border-white/30';
+        markBtn.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> <span>Aula Concluída</span>';
       } else {
-        markBtn.className = 'bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5';
+        markBtn.className = 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-3 rounded-xl transition flex items-center gap-1.5';
         markBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Concluir Aula</span>';
       }
 
@@ -751,20 +794,8 @@
       }).join('');
     }
 
-    function loadCustomYouTubeVideo() {
-      const url = document.getElementById('custom-yt-url').value.trim();
-      if (!url) return showToast("Cole um link do YouTube primeiro.");
-      const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-      if (!match || !match[1]) {
-        return showToast("Link inválido. Copie o link direto do vídeo no YouTube.");
-      }
-      const videoId = match[1];
-      document.getElementById('video-player-frame').src = `https://www.youtube.com/embed/${videoId}`;
-      document.getElementById('current-video-badge').textContent = "Vídeo Personalizado";
-      document.getElementById('current-video-title').textContent = "Aula Carregada pelo Usuário";
-      document.getElementById('current-video-desc').textContent = "Reproduzindo vídeo escolhido diretamente no aplicativo.";
-      document.getElementById('current-video-yt-link').href = url;
-      showToast("Vídeo carregado no player!");
+    function speakCurrentVideoSample() {
+      speakText(VIDEO_LESSONS[activeVideoIdx].sampleEn, speechRate);
     }
 
     function selectVideo(idx) {
@@ -1264,7 +1295,7 @@
       a.download = 'index.html';
       a.click();
       URL.revokeObjectURL(url);
-      showToast("index.html v4.1 baixado!");
+      showToast("index.html v4.2 baixado!");
     }
 
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
